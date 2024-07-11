@@ -103,8 +103,7 @@ def train_and_evaluate_single(num_epochs, model_name, tda_num_features, n_classe
     model = create_model(model_name, tda_num_features, n_classes)
     print(f"Training with {num_epochs} epochs for model {model_name}...")
 
-    model.fit(x=[X_tda_train, train_data_array_images], y=y_tda_train,
-              validation_data=([X_tda_test, test_data_array_images], y_tda_test),
+    model.fit(x=[X_tda_train, train_data_array_images], y=y_tda_train, y_tda_test),
               epochs=num_epochs, batch_size=64)
 
     y_pred = model.predict([X_tda_test, test_data_array_images])
